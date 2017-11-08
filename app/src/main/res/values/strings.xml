@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MarvelAdroid_7</string>
+    <string name="title_activity">Home</string>
+    <string name="title_button_menu1">Home</string>
+    <string name="title_button_menu2">Favorite</string>
+    <string name="title_button_menu3">Category</string>
 </resources>
