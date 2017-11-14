@@ -1,4 +1,4 @@
-package edu.nguyenmy.marveladroid_7.data.source.api;
+package edu.nguyenmy.marveladroid_7.data.source.remote;
 
 
 
@@ -12,14 +12,6 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.concurrent.TimeUnit;
-
-import edu.nguyenmy.marveladroid_7.data.model.CharacterList;
-import edu.nguyenmy.marveladroid_7.data.source.remote.api.APICharacter;
-import edu.nguyenmy.marveladroid_7.utils.APIUtils;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.Scheduler;
-import io.reactivex.disposables.Disposable;
 import okhttp3.Cache;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;

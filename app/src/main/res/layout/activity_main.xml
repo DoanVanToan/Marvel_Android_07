@@ -8,12 +8,8 @@
     <data>
 
         <variable
-            name="mainViewModel"
+            name="viewModel"
             type="edu.nguyenmy.marveladroid_7.screen.main.MainViewModel" />
-
-        <variable
-            name="adapter"
-            type="edu.nguyenmy.marveladroid_7.screen.main.MainAdapter" />
     </data>
 
     <LinearLayout
@@ -26,9 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_action_menu"
-            app:title="@string/toolbar_title_detail">
-
-        </android.support.v7.widget.Toolbar>
+            app:title="@string/toolbar_title_detail"/>
 
         <ImageView
             android:id="@+id/image_main"
@@ -41,10 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="GridLayoutManager"
-            app:recyclerAdapter="@{adapter}"
-            app:spanCount="2">
-
-        </android.support.v7.widget.RecyclerView>
+            android:recyclerAdapter="@{viewModel.adapter}"
+            app:spanCount="2"/>
 
     </LinearLayout>
 </layout>

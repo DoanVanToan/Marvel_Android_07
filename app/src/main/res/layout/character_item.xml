@@ -6,25 +6,31 @@
         <variable
             name="itemCharacter"
             type="edu.nguyenmy.marveladroid_7.data.model.Character" />
+
+        <variable
+            name="imageUrl"
+            type="edu.nguyenmy.marveladroid_7.data.model.Character.Thumbnail" />
+
     </data>
 
     <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left">
+        android:layout_marginLeft="@dimen/margin_left"
+        android:layout_marginTop="@dimen/margin_top">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/image_character"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/image_view_width"
+                android:layout_height="@dimen/image_view_height"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_place_holder" />
-
+                android:layout_marginTop="@dimen/margin_top"
+                android:src="@{imageUrl.fullUrl}" />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -35,6 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/margin_left"
+                    android:maxWidth="@dimen/maxWidth"
                     android:text="@{itemCharacter.name}" />
                 <Button
                     android:id="@+id/button_favorite"
@@ -42,7 +49,6 @@
                     android:layout_height="@dimen/icon_favorite_height"
                     android:layout_alignParentEnd="true"
                     android:layout_alignRight="@+id/text_name_character"
-                    android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/margin_right"
                     android:background="@drawable/ic_favorite"
                     android:backgroundTint="@color/colorFavorite" />

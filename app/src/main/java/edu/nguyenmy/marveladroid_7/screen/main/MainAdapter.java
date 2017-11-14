@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,29 +26,33 @@ public class MainAdapter extends BaseAdapter<MainAdapter.MainViewHolder> {
 
     private List<Character> mCharacter;
     private onClickListener<Character> mItemClickListerner;
+    private Context mContext;
 
-    public MainAdapter(@NonNull Context context, List<Character> characters) {
-        super(context);
+    public MainAdapter() {
         mCharacter = new ArrayList<>();
-        if (characters == null) {
-            return;
-        }
-        mCharacter.addAll(characters);
     }
 
     @Override
     public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         LayoutInflater inflater =
                 LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.character_item, parent, false);
-        return new MainViewHolder(view, mItemClickListerner);
+        CharacterItemBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.character_item, parent, false);
+        return new MainViewHolder(binding.getRoot(), mItemClickListerner);
     }
 
     @Override
     public void onBindViewHolder(MainViewHolder holder, int position) {
         Character character = mCharacter.get(position);
         holder.binding(character);
+    }
+
+    public void updateData(List<Character> character) {
+        if (character == null) {
+            return;
+        }
+        mCharacter.addAll(character);
+        notifyDataSetChanged();
     }
     @Override
     public int getItemCount() {
@@ -66,6 +72,7 @@ public class MainAdapter extends BaseAdapter<MainAdapter.MainViewHolder> {
         //binding dư lieu toi view
         public void binding(Character character) {
             mBinding.setItemCharacter(character);
+            mBinding.setImageUrl(character.getThumbnail());
         }
     }
 
