@@ -3,12 +3,19 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="edu.nguyenmy.marveladroid_7.MainActivity">
-<data>
+    tools:context="edu.nguyenmy.marveladroid_7.screen.main.MainActivity">
+
+    <data>
+
         <variable
             name="mainViewModel"
-            type="edu.nguyenmy.marveladroid_7.viewmodel.MainViewModel"/>
-</data>
+            type="edu.nguyenmy.marveladroid_7.screen.main.MainViewModel" />
+
+        <variable
+            name="adapter"
+            type="edu.nguyenmy.marveladroid_7.screen.main.MainAdapter" />
+
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,45 +26,24 @@
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/ic_action_menu">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/text_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/button_search"
-                    android:layout_alignBottom="@+id/button_search"
-                    android:layout_alignParentStart="true"
-                    android:text="@string/title_activity"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/button_search"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="203dp"
-                    android:layout_toEndOf="@+id/text_home"
-                    android:background="@android:drawable/ic_menu_search" />
-
-            </RelativeLayout>
+            app:navigationIcon="@drawable/ic_action_menu"
+            app:title="@string/toolbar_title_detail">
 
         </android.support.v7.widget.Toolbar>
 
         <ImageView
             android:id="@+id/image_main"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:src="@drawable/marvell" />
+            android:layout_height="@dimen/image_height"
+            android:src="@drawable/image_home_screen" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layoutManager="GridLayoutManager"
+            app:recyclerAdapter="@{adapter}"
+            app:spanCount="2">
 
         </android.support.v7.widget.RecyclerView>
 
