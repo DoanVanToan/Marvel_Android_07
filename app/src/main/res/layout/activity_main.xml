@@ -12,31 +12,37 @@
             type="edu.nguyenmy.marveladroid_7.screen.main.MainViewModel" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:fillViewport="true"
+        android:scrollbars="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tool_bar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/ic_action_menu"
-            app:title="@string/toolbar_title_detail"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image_main"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/image_height"
-            android:src="@drawable/image_home_screen" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorToolBar"
+                app:title="@string/toolbar_title_home" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="GridLayoutManager"
-            android:recyclerAdapter="@{viewModel.adapter}"
-            app:spanCount="2"/>
+            <ImageView
+                android:id="@+id/image_main"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                android:src="@drawable/image_home_screen" />
 
-    </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:recyclerAdapter="@{viewModel.adapter}"
+                app:layoutManager="GridLayoutManager"
+                app:spanCount="2" />
+        </LinearLayout>
+    </ScrollView>
 </layout>
