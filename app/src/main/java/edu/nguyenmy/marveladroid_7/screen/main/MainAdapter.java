@@ -25,7 +25,7 @@ public class MainAdapter extends BaseAdapter<MainAdapter.MainViewHolder> {
     private List<Character> mCharacter;
     private onClickListener<Character> mItemClickListerner;
 
-    protected MainAdapter(@NonNull Context context, List<Character> characters) {
+    public MainAdapter(@NonNull Context context, List<Character> characters) {
         super(context);
         mCharacter = new ArrayList<>();
         if (characters == null) {
@@ -41,16 +41,13 @@ public class MainAdapter extends BaseAdapter<MainAdapter.MainViewHolder> {
                 LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.character_item, parent, false);
         return new MainViewHolder(view, mItemClickListerner);
-
     }
 
     @Override
     public void onBindViewHolder(MainViewHolder holder, int position) {
         Character character = mCharacter.get(position);
         holder.binding(character);
-
     }
-
     @Override
     public int getItemCount() {
         return mCharacter == null ? 0 : mCharacter.size();
@@ -66,7 +63,6 @@ public class MainAdapter extends BaseAdapter<MainAdapter.MainViewHolder> {
             mBinding = DataBindingUtil.bind(view);
             mItemClickListener = clickListener;
         }
-
         //binding dư lieu toi view
         public void binding(Character character) {
             mBinding.setItemCharacter(character);

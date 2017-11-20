@@ -19,7 +19,6 @@ import edu.nguyenmy.marveladroid_7.screen.main.MainViewModel;
  */
 
 public final class BindingUtils {
-    @SuppressWarnings("unchecked")
     @BindingAdapter({"recyclerAdapter"})
     public static void setAdapterForRecyclerView(RecyclerView recyclerView, RecyclerView.Adapter adapter){
         recyclerView.setAdapter(adapter);

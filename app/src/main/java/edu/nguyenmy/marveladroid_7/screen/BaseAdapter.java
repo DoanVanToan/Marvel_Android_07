@@ -23,4 +23,5 @@ public abstract class BaseAdapter<V extends RecyclerView.ViewHolder>
     public interface onClickListener<V> {
         void onClickItem(V item);
     }
+
 }
