@@ -1,10 +1,6 @@
 package edu.nguyenmy.marveladroid_7.data.source.remote;
 
-import java.sql.Timestamp;
-import java.util.List;
-
-import edu.nguyenmy.marveladroid_7.data.model.Character;
-import edu.nguyenmy.marveladroid_7.data.model.CharacterList;
+import edu.nguyenmy.marveladroid_7.data.model.BaseResponse;
 import io.reactivex.Observable;
 
 /**
@@ -12,7 +8,8 @@ import io.reactivex.Observable;
  */
 
 public interface CharacterDataSource {
-    interface RemoteDataSource{
-        Observable<List<Character>> getData(int id, Timestamp timestamp,String apiKey, String hash);
+
+    interface RemoteDataSource {
+        Observable<BaseResponse> getData(long timestamp, String apiKey, String hash);
     }
 }

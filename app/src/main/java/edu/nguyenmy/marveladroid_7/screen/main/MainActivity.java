@@ -1,21 +1,18 @@
 package edu.nguyenmy.marveladroid_7.screen.main;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
-
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.nguyenmy.marveladroid_7.R;
 import edu.nguyenmy.marveladroid_7.data.model.Character;
 import edu.nguyenmy.marveladroid_7.data.source.CharacterRepository;
-import edu.nguyenmy.marveladroid_7.data.source.remote.CharacterDataSource;
 import edu.nguyenmy.marveladroid_7.data.source.remote.CharacterRemoteDataSource;
-import edu.nguyenmy.marveladroid_7.data.source.remote.CharacterServiceClient;
-import edu.nguyenmy.marveladroid_7.data.source.remote.api.APICharacter;
+import edu.nguyenmy.marveladroid_7.data.source.remote.service.CharacterServiceClient;
 import edu.nguyenmy.marveladroid_7.databinding.ActivityMainBinding;
 import edu.nguyenmy.marveladroid_7.utils.Constant;
 import io.reactivex.Observable;
@@ -23,25 +20,23 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 
+
 public class MainActivity extends AppCompatActivity {
-    private MainViewModel mMainViewModel;
+
+    private MainViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initDataBinding();
+        CharacterServiceClient.initialize(getApplication());
         CharacterRepository characterRepository = new CharacterRepository(
                 new CharacterRemoteDataSource(CharacterServiceClient.getInstance()));
-        ArrayList<Character> characters = getIntent().getParcelableArrayListExtra(Constant.ARGUMENT_LIST_CHARACTER);
-        MainAdapter mainAdapter = new MainAdapter(this,characters);
-        mMainViewModel = new MainViewModel(characterRepository, this,mainAdapter );
 
-    }
-    private void initDataBinding() {
-        mMainViewModel = new MainViewModel();
+        mViewModel = new MainViewModel(characterRepository);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setMainViewModel(mMainViewModel);
+        binding.setViewModel(mViewModel);
         setSupportActionBar(binding.toolBar);
+        mViewModel.getContentCharacter();
     }
 
     @Override
@@ -50,5 +45,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
+    @Override
+    protected void onStop() {
+        mViewModel.onStop();
+        super.onStop();
+    }
 }

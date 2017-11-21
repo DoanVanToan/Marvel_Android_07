@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/ic_place_holder"/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+        <!--<Button-->
+            <!--android:layout_width="@dimen/icon_favorite_width"-->
+            <!--android:layout_height="@dimen/icon_favorite_height"-->
+            <!--/>-->
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

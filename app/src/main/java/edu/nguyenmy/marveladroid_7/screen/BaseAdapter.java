@@ -10,15 +10,12 @@ import android.support.v7.widget.RecyclerView;
 
 public abstract class BaseAdapter<V extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<V> {
-    private final Context mContext;
 
-    protected BaseAdapter(@NonNull Context context) {
-        this.mContext = context;
+
+    protected BaseAdapter() {
+
     }
 
-    public Context getContext() {
-        return mContext;
-    }
 
     public interface onClickListener<V> {
         void onClickItem(V item);
