@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">MarvelAdroid_7</string>
-    <string name="toolbar_title_detail">Home</string>
+    <string name="toolbar_title_home">Home</string>
+    <string name="toolbar_title_detail">Detail</string>
     <string name="title_button_menu1">Home</string>
     <string name="title_button_menu2">Favorite</string>
     <string name="title_button_menu3">Category</string>
+    <string name="title_recycler1">Comic</string>
+    <string name="title_recycler2">Series</string>
+    <string name="title_recycler3">Story</string>
+    <string name="title_load_more">No more Item</string>
 </resources>
